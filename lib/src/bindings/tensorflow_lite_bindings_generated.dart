@@ -12,7 +12,7 @@ import 'dart:ffi' as ffi;
 ///
 /// Regenerate bindings with `flutter pub run ffigen --config ffigen_tensorflow_lite.yaml`.
 ///
-final class TensorFlowLiteBindings {
+class TensorFlowLiteBindings {
   /// Holds the symbol lookup function.
   final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
       _lookup;
@@ -2129,7 +2129,7 @@ final class TfLiteDelegate extends ffi.Struct {
 /// Note that new error status values may be added in future in order to
 /// indicate more fine-grained internal states, therefore, applications should
 /// not rely on status values being members of the enum.
-abstract final class TfLiteStatus {
+abstract class TfLiteStatus {
   static const int kTfLiteOk = 0;
 
   /// Generally referring to an error in the runtime (i.e. interpreter)
@@ -2504,7 +2504,7 @@ final class TfLiteTensor extends ffi.Struct {
 }
 
 /// Types supported by tensor
-abstract final class TfLiteType {
+abstract class TfLiteType {
   static const int kTfLiteNoType = 0;
   static const int kTfLiteFloat32 = 1;
   static const int kTfLiteInt32 = 2;
@@ -2619,7 +2619,7 @@ final class TfLiteQuantizationParams extends ffi.Struct {
 /// as constant inputs for downstream ops (also in prepare).
 /// * kTfLiteCustom: Custom memory allocation provided by the user. See
 /// TfLiteCustomAllocation below.
-abstract final class TfLiteAllocationType {
+abstract class TfLiteAllocationType {
   static const int kTfLiteMemNone = 0;
   static const int kTfLiteMmapRo = 1;
   static const int kTfLiteArenaRw = 2;
@@ -2646,7 +2646,7 @@ final class TfLiteQuantization extends ffi.Struct {
 }
 
 /// SupportedQuantizationTypes.
-abstract final class TfLiteQuantizationType {
+abstract class TfLiteQuantizationType {
   /// No quantization.
   static const int kTfLiteNoQuantization = 0;
 
@@ -2682,7 +2682,7 @@ final class TfLiteDimensionMetadata extends ffi.Struct {
 }
 
 /// Storage format of each dimension in a sparse tensor.
-abstract final class TfLiteDimensionType {
+abstract class TfLiteDimensionType {
   static const int kTfLiteDimDense = 0;
   static const int kTfLiteDimSparseCSR = 1;
 }
@@ -2836,7 +2836,7 @@ final class TfLiteExternalContext extends ffi.Struct {
 /// to avoid conflicts and to ensure ops can share the external contexts they
 /// need. Access to the external contexts is controlled by one of the
 /// corresponding support files.
-abstract final class TfLiteExternalContextType {
+abstract class TfLiteExternalContextType {
   /// include eigen_support.h to use.
   static const int kTfLiteEigenContext = 0;
 
@@ -2956,7 +2956,7 @@ final class TfLiteInterpreter extends ffi.Opaque {}
 /// The enum for builtin operators.
 /// Note: CUSTOM, DELEGATE, and PLACEHOLDER_FOR_GREATER_OP_CODES are 3 special
 /// ops which are not real built-in ops.
-abstract final class TfLiteBuiltinOperator {
+abstract class TfLiteBuiltinOperator {
   static const int kTfLiteBuiltinAdd = 0;
   static const int kTfLiteBuiltinAveragePool2d = 1;
   static const int kTfLiteBuiltinConcatenation = 2;
@@ -3163,7 +3163,7 @@ final class TfLiteRegistration_V1 extends ffi.Struct {
   external int version;
 }
 
-abstract final class TfLiteCoreMlDelegateEnabledDevices {
+abstract class TfLiteCoreMlDelegateEnabledDevices {
   /// Create Core ML delegate only on devices with Apple Neural Engine.
   /// Returns nullptr otherwise.
   static const int TfLiteCoreMlDelegateDevicesWithNeuralEngine = 0;
@@ -3198,7 +3198,7 @@ final class TfLiteCoreMlDelegateOptions extends ffi.Struct {
   external int min_nodes_per_partition;
 }
 
-abstract final class TFLGpuDelegateWaitType {
+abstract class TFLGpuDelegateWaitType {
   /// waitUntilCompleted
   static const int TFLGpuDelegateWaitTypePassive = 0;
 
@@ -3256,7 +3256,7 @@ final class TfLiteXNNPackDelegateOptions extends ffi.Struct {
 }
 
 /// Encapsulated compilation/runtime tradeoffs.
-abstract final class TfLiteGpuInferenceUsage {
+abstract class TfLiteGpuInferenceUsage {
   /// Delegate will be used only once, therefore, bootstrap/init time should
   /// be taken into account.
   static const int TFLITE_GPU_INFERENCE_PREFERENCE_FAST_SINGLE_ANSWER = 0;
@@ -3266,7 +3266,7 @@ abstract final class TfLiteGpuInferenceUsage {
   static const int TFLITE_GPU_INFERENCE_PREFERENCE_SUSTAINED_SPEED = 1;
 }
 
-abstract final class TfLiteGpuInferencePriority {
+abstract class TfLiteGpuInferencePriority {
   /// AUTO priority is needed when a single priority is the most important
   /// factor. For example,
   /// priority1 = MIN_LATENCY would result in the configuration that achieves
@@ -3279,7 +3279,7 @@ abstract final class TfLiteGpuInferencePriority {
 
 /// Used to toggle experimental flags used in the delegate. Note that this is a
 /// bitmask, so the values should be 1, 2, 4, 8, ...etc.
-abstract final class TfLiteGpuExperimentalFlags {
+abstract class TfLiteGpuExperimentalFlags {
   static const int TFLITE_GPU_EXPERIMENTAL_FLAGS_NONE = 0;
 
   /// Enables inference on quantized models with the delegate.
